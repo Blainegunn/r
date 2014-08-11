@@ -1,0 +1,211 @@
+<!doctype html>
+<html ng-app='myApp' ng-controller='strCtrl'>
+<head>
+	<title>LDS Program</title>
+	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+</head>
+
+<body>
+
+
+<header ng-controller='menuCtrl'>
+	<div id="signIn">
+		Sign in 
+	</div>
+	<div class="login">
+		user name<input type="text" name="userName" placeholder="user name..">
+		password<input type="password" name="userName" placeholder="password..">
+	</div>
+	<div class="logo"></div>
+	<div id="clearflex"></div>
+	<div class="menuItem" ng-click='settingsMenu()'>{{str.settings}}</div>
+	<div class="menuItem">{{str.distribution}}</div>
+	<div class="menuItem">{{str.wards}}</div>
+	<div class="menuItem" ng-click='programsMenu()'>{{str.programs}}</div>
+</header>
+<!-- menus  -->
+<div class="settingsMenu">
+	<ul>
+		<li>thing</li>
+		<li>thing</li>
+		<li>thing</li>
+		<li>thing</li>
+		<li>thing</li>
+	</ul>
+</div>
+<div class="programsMenu">
+	<div>
+		<a href=""  onclick="bigMoney()"> {{str.make}}</a>
+	</div>
+</div>
+
+<!-- log in view -->
+<div id="loginView" ng-controller='loginCtrl'>
+	<div class="frame"> {{info.ward}}
+			<div class="option">
+				Username: <input id="user" type="text" name='username'> Password: <input id="pass" type="password" name="password">
+			</div>	
+			<button id="login" ng-click='login()'>
+				login!!! 
+			</button>
+			<div class="option">
+				Create Account 
+			</div>	
+		</div>
+		<!-- <div id="modalBackground"></div> -->
+</div>
+
+<!-- home view  -->
+
+
+<div id="container">
+	<div class="intro">
+		<div class="title">{{str.welcome}}</div>
+		Welcome to LDS Program Manager. Create all of your Sunday programs here and access them from your smart phone or tablet. Stop killing trees and get with the program! Yup!
+	</div>
+</div>
+
+<!-- new program view  -->
+<!-- <form class="newPro"> -->
+<div class="newPro" ng-controller="saveCtrl">
+	<div>
+		<b class="field">{{str.ward}}</b><input ng-model="info.ward" type="text" name='ward' value="{{info.ward}}">
+	</div>
+	<div>
+		<b class="field">{{str.date}}</b><input ng-model="info.date" type="text" name='date' value="{{info.date}}">
+	</div>
+	<div>
+		<b class="field">{{str.presiding}}</b><input ng-model="info.presiding" type="text" name='presiding' value="{{info.presiding}}">
+	</div>
+	<div>
+		<b class="field">{{str.conducting}}</b><input ng-model="info.conducting" type="text" name='conducting' value="{{info.conducting}}">
+	</div>
+	<div>
+		<b class="field">{{str.chorister}}</b><input ng-model="info.chorister" type="text" name='chorister' value="{{info.chorister}}">
+	</div>
+	<div>
+		<b class="field">{{str.organist}}</b><input ng-model="info.organist" type="text" name='orgainist' value="{{info.orgainist}}">
+	</div>
+	<div>
+		<b class="field">{{str.oHymn}}</b><input ng-model="info.oHymn" type="text" name='oHymn' value="{{info.oHymn}}">
+	</div>
+	<div>
+		<b class="field">{{str.oPrayer}}</b><input ng-model="info.oPrayer" type="text" name='oPrayer' value="{{info.oPrayer}}">
+	</div>
+	<div>
+		<b class="field">{{str.wardBiz}}</b>
+		<textarea ng-model="info.wardBiz" class="ta" name="wardBiz" value="info.wardBiz"> </textarea>
+	</div>
+	<div>
+		<b class="field">{{str.sacHymn}}</b><input ng-model="info.sacHymn" type="text" name='sacHymn'>
+	</div>
+	<div>
+		<b class="field">{{str.admin}}</b><input type="radio" name='sacYes'> Y <input type="radio" name='sacNo'> N
+	</div>
+	<div>
+		<b class="field">{{str.speakers}}</b>
+		<textarea ng-model="info.speakers" class="ta"> </textarea>
+	</div>
+	<div>
+		<b class="field">{{str.iHymn}}</b><input ng-model="info.iHymn" type="text" name='orgainist'>
+	</div>
+	<div>
+		<b class="field">{{str.cHymn}}</b><input ng-model="info.cHymn" type="text" name='orgainist'>
+	</div>
+	<div>
+		<b class="field">{{str.cPrayer}}</b> <input ng-model="info.cPrayer" type="text" name='cPrayer'>
+	</div>
+	<div id="proFooter">
+		<div>
+			<button ng-click="addMessage($event)">{{str.save}}</button>
+		</div>
+		<div>
+			<!-- <button  ng-click="tuna.write()">{{str.preview}} </button> -->
+			<btns>
+				<button  class="preBtn">{{str.preview}} </button>
+			</btns>
+		</div>
+	</div>
+
+
+<!-- </form> -->
+</div>
+
+
+<!-- actual program view  -->
+
+<div id="program" ng-controller="saveCtrl">
+	<a id="close">X</a>
+	<div class="aTitle">
+		<div class="date">{{info.ward}}</div>
+		<div class="date">{{info.date}}</div>
+	</div>
+	<div class="aConducting">
+		<span>{{str.presiding}}</span> <span class="person">{{info.presiding}}</span>
+		<br />
+		<span>{{str.conducting}}</span> <span class="person">{{info.conducting}}</span>
+		<br />
+		<br />
+		<span>{{str.chorister}}</span> <span class="person">{{info.chorister}}</span>
+		<br />
+		<span>{{str.organist}}</span> <span class="person">{{info.organist}}</span>
+	</div>
+	<div class="aBiz">
+		<span>{{str.oHymn}}</span> <span class="person">"{{info.oHymn}}"</span>
+		<br />
+		<span>{{str.oPrayer}}</span> <span class="person">{{info.oPrayer}}</span>
+		<br />
+		<span class="action">{{str.wardBiz}}</span> <span class="wardBiz">{{info.wardBiz}}</span>
+	</div>
+	<div class="aSac">
+		<span>{{str.sacHymn}}</span> <span class="person">"{{info.sacHymn}}"</span>
+		<br />
+		<span class="action sac">{{str.admin}}</span>
+		<br /> 
+		<span>{{str.speakers}}</span> <span class="person">{{info.speakers}}</span>
+		<br /> 
+		<span>{{str.speakers}}</span> <span class="person">{{info.speakers}}</span>
+		<br /> 
+		<span>{{str.iHymn}}</span> <span class="person">{{info.iHymn}}</span>
+		<br /> 
+		<span>{{str.speakers}}</span> <span class="person">{{info.speakers}}</span>	
+	</div>
+	<div class="aClose">
+		<span>{{str.cHymn}}</span> <span class="person">"{{info.cHymn}}"</span>
+		<br />
+		<span>{{str.cPrayer}}</span> <span class="person">{{info.cPrayer}}</span>
+	</div>
+</div>
+<new-Program></new-Program>
+
+
+
+
+
+
+
+
+
+
+
+
+z
+
+
+
+<!-- 
+<footer>
+<div ng-controller='peopleCtrl'>
+	{{name.bg}}
+</div>
+	
+</footer> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.js"></script>
+<script src="https://cdn.firebase.com/js/client/1.0.15/firebase.js"></script>
+<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+<script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
+<script src="/javascripts/modules.js"></script>
+<script src="/javascripts/actions.js"></script>
+</body>
+</html>

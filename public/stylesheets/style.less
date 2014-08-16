@@ -1,3 +1,6 @@
+////Colors////
+@lds-blue: #2a3753;
+
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
@@ -13,10 +16,11 @@
 }
 
 body {
-	background-color: #2a3753;
+	background-color: @lds-blue;
 	font-size: 13px;
 	color: #777;
 	font:  13px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+	height: 100%;
 }
 header{
 	height: 50px;
@@ -63,8 +67,8 @@ footer{
 	border: 2px white solid;
 	background: rgb(194, 194, 194);
 	position: absolute;
-	right: 210px;
-	top: 85px;
+	right: 10px;
+	top: 70px;
 	text-align: left;
 	padding: 10px;
 	display: none;
@@ -114,9 +118,9 @@ textarea{
 	background-color: rgb(241, 227, 208);
 	display: none;
 	z-index: 6;
-	position: fixed;
-	top: 15%;
-	left: 10%;
+	position: absolute;
+	top: 30px;
+	left: 26%;
 }
 #program a{
 	position: absolute;
@@ -166,28 +170,44 @@ textarea{
 #loginView{
 	width: 103%;
 	margin: auto;
-	height: 3000px;
 	position: relative;
 	top: -58px;
 	left: -8px;
+	height: 100%;
 }
+
 #modalBackground{
 	background: #000;
 	opacity: 0.7;
-	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
 }
 .frame{
-	width: 400px;
+	width: 430px;
 	margin: auto;
-	background: burlywood;
+	background: @lds-blue;
+	color: #fff;
 	padding: 50px 125px;
-
+	position: relative;
+	top: 150px;
+	border
+}
+#newAccount{
+	display: none;
+}
+#createAccount{
+	text-decoration: underline;
 }
 
+.accountField{
+	width: 130px;
+}
 
-
-
-
+p{
+	width: 150px;
+	display: inline-block;
+}
 
 
 

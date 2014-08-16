@@ -3,29 +3,25 @@
 <head>
 	<title>LDS Program</title>
 	<link rel='stylesheet' href='/stylesheets/style.css' />
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
 </head>
 
 <body>
 
 
-<header ng-controller='menuCtrl'>
-	<div id="signIn">
-		Sign in 
-	</div>
+<header menu>
 	<div class="login">
 		user name<input type="text" name="userName" placeholder="user name..">
 		password<input type="password" name="userName" placeholder="password..">
 	</div>
 	<div class="logo"></div>
 	<div id="clearflex"></div>
-	<div class="menuItem" ng-click='settingsMenu()'>{{str.settings}}</div>
+	<!-- <div class="menuItem" ng-click='settingsMenu()'>{{str.settings}}</div>
 	<div class="menuItem">{{str.distribution}}</div>
-	<div class="menuItem">{{str.wards}}</div>
-	<div class="menuItem" ng-click='programsMenu()'>{{str.programs}}</div>
+	<div class="menuItem">{{str.wards}}</div> -->
+	<div class="menuItem">{{str.programs}}</div>
 </header>
 <!-- menus  -->
-<div class="settingsMenu">
+<!-- <div class="settingsMenu">
 	<ul>
 		<li>thing</li>
 		<li>thing</li>
@@ -33,27 +29,53 @@
 		<li>thing</li>
 		<li>thing</li>
 	</ul>
-</div>
+</div> -->
 <div class="programsMenu">
 	<div>
-		<a href=""  onclick="bigMoney()"> {{str.make}}</a>
+		<div id="makeNewPro" make-new-pro>Create a new pro</div>
+		<div> Settings</div>
+		<div>Account</div>
+		<div>Logout</div>
 	</div>
 </div>
 
 <!-- log in view -->
-<div id="loginView" ng-controller='loginCtrl'>
-	<div class="frame"> {{info.ward}}
-			<div class="option">
-				Username: <input id="user" type="text" name='username'> Password: <input id="pass" type="password" name="password">
-			</div>	
-			<button id="login" ng-click='login()'>
-				login!!! 
-			</button>
-			<div class="option">
-				Create Account 
-			</div>	
-		</div>
-		<!-- <div id="modalBackground"></div> -->
+<div id="loginView">
+	<div id="modalBackground" style=" height:{{str.winSize}}px;"></div>
+		<div class="frame" ng-controller='saveCtrl'> 
+			
+			<div id="enterAccount"> 
+				<div class="option" ng-controller="userCtrl">
+					Email: <input id="user" type="text" name='username' ng-model="user.email"> Password: <input id="pass" type="password" name="password" ng-model="user.pass1">
+				    
+				
+				<button login id="login" ng-click="login()">
+					login!!! 
+				</button>
+				</div>
+				<br />
+				<br /> 
+				Need access? Please create
+				<span create-account id="createAccount">
+					 an account 
+				</span>
+				.
+			</div>
+			<div id="newAccount" ng-controller="userCtrl">
+				<p>First Name:</p><input class="accountField" ng-model="user.firstName" type="text" name='firstName'><br />
+				<p>Last Name:</p> <input class="accountField" ng-model="user.lastName" type="text" name='lastName'><br />
+				<p>Email:</p> <input class="accountField" ng-model="user.email" type="text" name='email'><br />
+				<p>Password:</p> <input id="pass1" class="accountField" ng-model="user.pass1" type="password" name='pass1'><br />
+				<p>Confirm Password:</p> <input id="pass2" class="accountField" ng-model="user.pass2" type="password" name='pass2'><br />
+				<br />
+				<button create-btn id="createBtn" ng-click="createUser($event)">
+					Create
+				</button>	
+			</div>
+			
+		<!-- </div> -->
+	</div>
+	
 </div>
 
 <!-- home view  -->
@@ -121,7 +143,6 @@
 			<button ng-click="addMessage($event)">{{str.save}}</button>
 		</div>
 		<div>
-			<!-- <button  ng-click="tuna.write()">{{str.preview}} </button> -->
 			<btns>
 				<button  class="preBtn">{{str.preview}} </button>
 			</btns>
@@ -177,35 +198,17 @@
 		<span>{{str.cPrayer}}</span> <span class="person">{{info.cPrayer}}</span>
 	</div>
 </div>
-<new-Program></new-Program>
 
 
-
-
-
-
-
-
-
-
-
-
-z
-
-
-
-<!-- 
-<footer>
-<div ng-controller='peopleCtrl'>
-	{{name.bg}}
-</div>
-	
-</footer> -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.js"></script>
 <script src="https://cdn.firebase.com/js/client/1.0.15/firebase.js"></script>
-<script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
 <script src='https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js'></script>
+<script src="https://cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
+<!-- <script src='https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js'></script> -->
 <script src="/javascripts/modules.js"></script>
 <script src="/javascripts/actions.js"></script>
+<script src="/javascripts/controllers.js"></script>
+<script src="/javascripts/directives.js"></script>
+<script src="/javascripts/fire.js"></script>
 </body>
 </html>

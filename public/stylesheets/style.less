@@ -1,5 +1,6 @@
 ////Colors////
 @lds-blue: #2a3753;
+@dark-gray: rgb(99, 99, 99);
 
 @font-face {
   font-family: 'Roboto';
@@ -184,14 +185,14 @@ textarea{
 	top: 0;
 }
 .frame{
-	width: 430px;
+	width: 210px;
 	margin: auto;
 	background: @lds-blue;
 	color: #fff;
-	padding: 50px 125px;
+	padding: 50px;
 	position: relative;
 	top: 150px;
-	border
+	border-radius: 20px;
 }
 #newAccount{
 	display: none;
@@ -208,9 +209,23 @@ p{
 	width: 150px;
 	display: inline-block;
 }
+.loginBoxes, .accountField, #createBtn {
+	width: 200px;
+	height: 30px;
+	margin: 3px auto;
+	border-radius: 5px;
+	border-style: hidden;
+	outline: none;
+	text-align: center;
+}
 
-
-
+#login.loginBoxes:hover, #createBtn:hover {
+	background-color: @dark-gray;
+}
+#enterAccount{
+	width: 205px;
+	margin: auto;
+}
 
 
 

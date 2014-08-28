@@ -83,21 +83,28 @@ myApp.directive('login', function(){
 			var userBox = [];
 			var passBox = [];
 			var userName = a.users.firstName;
+			var fnBox =[];
 			//console.log("this is a directive bitch " + a.users.length);
 			for(var i = 0; i < a.users.length; i++){
+				console.log(a.users.length)
 				console.log("username: " + a.user.email);
 				var single = a.users[i].email; 
 				var pass = a.users[i].pass1;
+				var fn = a.users[i].firstName;
+				var blaine = 'blaine';
 				userBox.push(single);
 				passBox.push(pass);
+				fnBox.push(fn);
 				console.log('USERNAME: ' + userBox[i]);
-				console.log('pw: ' +passBox[i]);
-				console.log("PW: " +a.user.pass1)
+				console.log('PW: ' +passBox[i]);
+				console.log()
+				console.log("pw: " +a.user.pass1)
 					if(a.user.email === userBox[i] && a.user.pass1 === passBox[i]){
-						console.log('You\'ve logged in!!!! via the directive');
+						console.log('You\'ve logged in!!!! via the directive ' + fnBox[i]);
 						// user.style.border="";
 						// pass.style.border="";
 						loginView.style.display='none';
+						a.beenTrill = fnBox[i];
 					}else if(a.users.email === "" && a.users.pass1 === ""){
 						// user.style.border="1px red solid";
 						// pass.style.border="1px red solid";

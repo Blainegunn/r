@@ -58,7 +58,8 @@ myApp.controller('userCtrl', function($scope, $firebase){
 			pass1: $scope.user.pass1,
 			pass2: $scope.user.pass2,
 		  });
-		  $scope.quantity = 1;
+
+		  $scope.quantity = 10;
 		};
 		
 		var userBox = [];
@@ -108,7 +109,7 @@ myApp.controller('strCtrl', function($scope){
 		cPrayer: 'benediction',
 		save: 'save',
 		preview: 'preview',
-		winSize: window.innerHeight
+		winSize: document.body.scrollHeight + 400
 	}
 });
 myApp.controller('loginCtrl', function($scope, $firebase, informations){
